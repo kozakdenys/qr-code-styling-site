@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>QR Code Styling</title>
+</head>
+<body>
+    <header class="container">
+        <div class="col">
+            <h1>QR Code Styling</h1>
+        </div>
+    </header>
+    <main>
+        <section class="container" id="qr-description">
+            <div class="col">
+                xdfdf
+            </div>
+        </section>
+        <section class="container">
+            <div class="row">
+                <form class="col" id="form">
+                    <label for="form-data">Data</label>
+                    <input node="data" node-change-event="oninput" id="form-data" type="text" value="qrcodestyling.tk" />
+                    <label for="form-image">Image</label>
+                    <input node="image" node-data-field="files" id="form-image" type="file" />
+                    <button type="button" id="button-cancel">Cancel</button>
+                    <button type="button" id="button-default">Default</button>
+                    <label for="form-width">Width</label>
+                    <input node="width" id="form-width" type="number" min="100" max="10000" value="300"/>
+                    <label for="form-height">Height</label>
+                    <input node="height" id="form-height" type="number" min="100" max="10000" value="300"/>
+                    <label for="form-dots-color">Dots Color</label>
+                    <input node="dotsOptions.color" id="form-dots-color" type="color" value="#4267b2"/>
+                    <label for="form-dots-type">Dots Style</label>
+                    <select node="dotsOptions.type" id="form-dots-type">
+                        <option value="square" selected>Square</option>
+                        <option value="dots">Dots</option>
+                        <option value="rounded">Rounded</option>
+                    </select>
+                    <label for="form-background-color">Background Color</label>
+                    <input node="backgroundOptions.color" id="form-background-color" type="color" value="#e9ebee"/>
+                    <label for="form-hide-background-dots">Hide Background Dots</label>
+                    <input node="imageOptions.hideBackgroundDots" node-data-field="checked" id="form-hide-background-dots" type="checkbox" checked/>
+                    <label for="form-image-size">Image Size</label>
+                    <input node="imageOptions.imageSize" id="form-image-size" type="number" min="0" max="1" step="0.1" value="0.4"/>
+                    <label for="form-qr-type-number">Type Number</label>
+                    <input node="qrOptions.typeNumber" id="form-qr-type-number" type="number" min="0" max="40" value="0"/>
+                    <label for="form-qr-mode">Mode</label>
+                    <select node="qrOptions.mode" id="form-qr-mode">
+                        <option value="Numeric">Numeric</option>
+                        <option value="Alphanumeric">Alphanumeric</option>
+                        <option value="Byte" selected>Byte</option>
+                        <option value="Kanji">Kanji</option>
+                    </select>
+                    <label for="form-qr-error-correction-level">Error Correction Level</label>
+                    <select node="qrOptions.errorCorrectionLevel" id="form-qr-error-correction-level">
+                        <option value="L">L</option>
+                        <option value="M">M</option>
+                        <option value="Q" selected>Q</option>
+                        <option value="H">H</option>
+                    </select>
+                </form>
+                <div class="col" id="qr-code-generated"></div>
+            </div>
+        </section>
+    </main>
+    <footer class="container">
+        <div class="col">
+            asdf
+        </div>
+    </footer>
+</body>
+</html>
