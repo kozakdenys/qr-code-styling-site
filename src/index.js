@@ -2,7 +2,7 @@ import QrCodeStyling from "qr-code-styling";
 import "./index.css";
 import NodesBinder from "./js/nodes-binder";
 import { getSrcFromFile } from "./js/tools";
-import defaultImage from "./assets/qr_transparent.png";
+import defaultImage from "./assets/logo.png";
 
 const form = document.getElementById("form");
 const descriptionContainer = document.getElementById("qr-description");
@@ -27,7 +27,7 @@ function updateDescriptionContainerBackground(backgroundColor, qrColor) {
         rightColor = qrColor;
     }
 
-    descriptionContainer.style["background-image"] = `linear-gradient(90deg, #000 0%, ${leftColor} 30%, ${rightColor} 100%)`;
+    descriptionContainer.style["background-image"] = `linear-gradient(90deg, #000 0%, ${leftColor} 50%, ${rightColor} 100%)`;
 }
 
 function getPerceptualBrightness(color) {
@@ -63,7 +63,9 @@ nodesBinder.onStateUpdate(({ field, data }) => {
     qrCode.update(state);
 });
 
-qrCode.append(document.getElementById("qr-code-generated"));
+const qrContainer = document.getElementById("qr-code-generated");
+
+qrCode.append(qrContainer);
 
 document.getElementById("button-cancel").onclick = () => {
     nodesBinder.setState({ image: new DataTransfer().files });
@@ -75,3 +77,39 @@ document.getElementById("button-default").onclick = () => {
         image: defaultImage
     });
 };
+
+function downloadURI(uri, name) {
+    let link = document.createElement("a");
+    link.download = name;
+    link.href = uri;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+document.getElementById("qr-download").onclick = () => {
+    const extension = document.getElementById("qr-extension").value;
+    const data = qrContainer.childNodes[0].toDataURL(`image/${extension}`);
+    downloadURI(data, `qr.${extension}`);
+};
+
+
+//Accordion
+let acc = document.getElementsByClassName("accordion");
+
+for (let i = 0; i < acc.length; i++) {
+    if (acc[i].classList.contains("accordion--open")) {
+        continue;
+    }
+
+    acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+
+        const panel = this.nextElementSibling;
+        if (panel.style.display === "grid") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "grid";
+        }
+    });
+}

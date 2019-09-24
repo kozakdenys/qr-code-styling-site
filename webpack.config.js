@@ -1,15 +1,16 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const rootPath = path.resolve(__dirname, "./");
 const srcPath = path.resolve(rootPath, "src");
-const distPath = path.resolve(rootPath, "dist");
+const docsPath = path.resolve(rootPath, "docs");
 
 const config = {
     entry: srcPath + "/index.js",
     output: {
-        path: distPath,
+        path: docsPath,
         filename: 'index.js'
     },
     module: {
@@ -25,8 +26,8 @@ const config = {
                 loader: "file-loader"
             },
             {
-                test: /\.css$/i,
-                use: ["style-loader", "css-loader"],
+                test: /\.css$/,
+                use: [ MiniCssExtractPlugin.loader, "css-loader"]
             }
         ]
     },
@@ -34,6 +35,9 @@ const config = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: srcPath + "/index.html"
+        }),
+        new MiniCssExtractPlugin({
+            filename: "index.css"
         })
     ]
 };
