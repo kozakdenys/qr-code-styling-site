@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/kozakdenys/qr-code-styling-site/issues"
   },
-  "homepage": "https://github.com/kozakdenys/qr-code-styling-site#readme",
+  "homepage": "https://qrcodestyling.com/",
   "dependencies": {
     "qr-code-styling": "^1.0.1"
   },
