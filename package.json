@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/kozakdenys/qr-code-styling-site#readme",
   "dependencies": {
-    "qr-code-styling": "^0.3.0"
+    "qr-code-styling": "^1.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

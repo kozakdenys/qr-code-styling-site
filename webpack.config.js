@@ -11,7 +11,7 @@ const config = {
     entry: srcPath + "/index.js",
     output: {
         path: docsPath,
-        filename: 'index.js'
+        filename: "index.[contenthash].js"
     },
     module: {
         rules: [
@@ -37,7 +37,7 @@ const config = {
             template: srcPath + "/index.html"
         }),
         new MiniCssExtractPlugin({
-            filename: "index.css"
+            filename: "index.[contenthash].css"
         })
     ]
 };
