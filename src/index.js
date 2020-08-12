@@ -78,21 +78,10 @@ document.getElementById("button-default").onclick = () => {
     });
 };
 
-function downloadURI(uri, name) {
-    let link = document.createElement("a");
-    link.download = name;
-    link.href = uri;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-}
-
 document.getElementById("qr-download").onclick = () => {
     const extension = document.getElementById("qr-extension").value;
-    const data = qrContainer.childNodes[0].toDataURL(`image/${extension}`);
-    downloadURI(data, `qr.${extension}`);
+    qrCode.download(extension);
 };
-
 
 //Accordion
 let acc = document.getElementsByClassName("accordion");
