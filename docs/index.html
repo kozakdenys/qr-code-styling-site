@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Generate branded QR code online, you can add image and color to your QR code. Use the QR code styling library in your site to generate QR codes dynamically." />
+    <meta name="keywords" content="qr, qr code, style, styling, brand, branding, color, image, generator, generating" />
+    <link rel="preconnect" href="https://www.google-analytics.com">
+    <link rel="shortcut icon" type="image/x-icon" href="b9eac011a0558695563d6081a8395ccb.png" />
+    <title>QR Code Styling</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149838823-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-149838823-1');
+    </script>
+<link href="index.739234a20158aacab57a.css" rel="stylesheet"></head>
+<body>
+    <header class="container qr-header">
+        <div class="row row--qr-header">
+            <div class="col qr-logo">
+                <img class="qr-logo__img" src="0b3922d9d1e466270a79706c08c4a57c.png" alt="QR code styling logo" />
+            </div>
+            <a target="_blank" rel="noopener" class="col white" href="https://www.npmjs.com/package/qr-code-styling">npm v1.1.0</a>
+            <a target="_blank" rel="noopener" class="col white" href="https://github.com/kozakdenys/qr-code-styling">GitHub</a>
+        </div>
+    </header>
+    <main>
+        <section class="container qr-description" id="qr-description">
+            <div class="col">
+                <h1 class="qr-description__lib-name">QR Code Styling</h1>
+                <p>An open source JS library</p>
+                <p>For generating styled QR codes</p>
+            </div>
+        </section>
+        <section class="container">
+            <div class="row">
+                <form class="col qr-form" id="form">
+                    <button type="button" class="accordion accordion--open">Main Options</button>
+                    <div class="panel panel--open">
+                        <label for="form-data">Data</label>
+                        <input node="data" node-change-event="oninput" id="form-data" type="text" value="https://qrcodestyling.com" />
+                        <label for="form-image">Image</label>
+                        <div class="form-image__buttons">
+                            <input node="image" node-data-field="files" id="form-image" type="file" />
+                            <button type="button" id="button-cancel">Cancel</button>
+                            <button type="button" id="button-default">Default</button>
+                        </div>
+                        <label for="form-width">Width</label>
+                        <div>
+                            <input node="width" id="form-width" type="number" min="100" max="10000" value="300"/>
+                        </div>
+                        <label for="form-height">Height</label>
+                        <div>
+                            <input node="height" id="form-height" type="number" min="100" max="10000" value="300"/>
+                        </div>
+                    </div>
+                    <button type="button" class="accordion">Dots Options</button>
+                    <div class="panel">
+                        <label for="form-dots-color">Dots Color</label>
+                        <div>
+                            <input node="dotsOptions.color" id="form-dots-color" type="color" value="#0970b7"/>
+                        </div>
+                        <label for="form-dots-type">Dots Style</label>
+                        <div>
+                            <select node="dotsOptions.type" id="form-dots-type">
+                                <option value="square" selected>Square</option>
+                                <option value="dots">Dots</option>
+                                <option value="rounded">Rounded</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="button" class="accordion">Background Options</button>
+                    <div class="panel">
+                        <label for="form-background-color">Background Color</label>
+                        <div>
+                            <input node="backgroundOptions.color" id="form-background-color" type="color" value="#ffffff"/>
+                        </div>
+                    </div>
+                    <button type="button" class="accordion">Image Options</button>
+                    <div class="panel">
+                        <label for="form-hide-background-dots">Hide Background Dots</label>
+                        <div>
+                            <input node="imageOptions.hideBackgroundDots" node-data-field="checked" id="form-hide-background-dots" type="checkbox" checked/>
+                        </div>
+                        <label for="form-image-size">Image Size</label>
+                        <div>
+                            <input node="imageOptions.imageSize" id="form-image-size" type="number" min="0" max="1" step="0.1" value="0.4"/>
+                        </div>
+                    </div>
+                    <button type="button" class="accordion">QR Options</button>
+                    <div class="panel">
+                        <label for="form-qr-type-number">Type Number</label>
+                        <div>
+                            <input node="qrOptions.typeNumber" id="form-qr-type-number" type="number" min="0" max="40" value="0"/>
+                        </div>
+                        <label for="form-qr-mode">Mode</label>
+                        <div>
+                            <select node="qrOptions.mode" id="form-qr-mode">
+                                <option value="Numeric">Numeric</option>
+                                <option value="Alphanumeric">Alphanumeric</option>
+                                <option value="Byte" selected>Byte</option>
+                                <option value="Kanji">Kanji</option>
+                            </select>
+                        </div>
+                        <label for="form-qr-error-correction-level">Error Correction Level</label>
+                        <div>
+                            <select node="qrOptions.errorCorrectionLevel" id="form-qr-error-correction-level">
+                                <option value="L">L</option>
+                                <option value="M">M</option>
+                                <option value="Q" selected>Q</option>
+                                <option value="H">H</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+                <div class="col qr-code-container">
+                    <div class="qr-code" id="qr-code-generated"></div>
+                    <div class="qr-download-group">
+                        <button id="qr-download">Download</button>
+                        <label class="hide" for="qr-extension">Extension</label>
+                        <select id="qr-extension">
+                            <option value="png" selected>PNG</option>
+                            <option value="jpeg">JPEG</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>If you have any questions or issues please contact me via <a class="black" rel="noopener" href="mailto:kozak.denys.dev@gmail.com">email</a> or <a class="black" target="_blank" rel="noopener" href="https://github.com/kozakdenys/qr-code-styling">GitHub Issues</a>.
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="container qr-footer">
+        <div class="col">
+            © 2020 <a target="_blank" rel="noopener" class="white" href="https://www.linkedin.com/in/denys-kozak/">Denys Kozak</a>
+        </div>
+    </footer>
+<script type="text/javascript" src="index.d36e5779e75ada29b4b0.js"></script></body>
+</html>
