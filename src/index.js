@@ -80,7 +80,7 @@ document.getElementById("button-default").onclick = () => {
 
 document.getElementById("qr-download").onclick = () => {
     const extension = document.getElementById("qr-extension").value;
-    qrCode.download(extension);
+    qrCode.download({ extension, name: "qr-code-styling" });
 };
 
 //Accordion
