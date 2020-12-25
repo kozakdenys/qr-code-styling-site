@@ -176,20 +176,20 @@ input[type="text"], input[type="number"] {
     padding: 20px;
 }
 
-.form-image__buttons {
+.form-image-file__buttons {
     display: flex;
     flex-wrap: wrap;
 }
 
-.form-image__buttons button {
+.form-image-file__buttons button {
     margin-left: 10px;
 }
 
-.form-image__buttons button:first-of-type {
+.form-image-file__buttons button:first-of-type {
     margin-left: 0;
 }
 
-.form-image__buttons #form-image {
+.form-image-file__buttons #form-image-file {
     flex-grow: 1;
     padding: 10px 0;
     white-space: nowrap;
@@ -221,6 +221,8 @@ input[type="text"], input[type="number"] {
 
 .qr-form {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .qr-header {

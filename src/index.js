@@ -42,16 +42,30 @@ function getPerceptualBrightness(color) {
 updateDescriptionContainerBackground(initState.dotsOptions.color, initState.backgroundOptions.color);
 
 nodesBinder.onStateUpdate(({ field, data }) => {
-    const { image, ...state } = nodesBinder.getState();
+    const { imageFile, imageUrl, ...state } = nodesBinder.getState();
 
     updateDescriptionContainerBackground(state.dotsOptions.color, state.backgroundOptions.color);
 
-    if (field === "image") {
-        if (data && data[0]) {
-            getSrcFromFile(data[0], result => {
+    if (field === "imageFile") {
+        if (imageFile && imageFile[0]) {
+            nodesBinder.setState({ imageUrl: "" });
+            getSrcFromFile(imageFile[0], result => {
                 qrCode.update({
                     image: result
                 });
+            });
+        } else {
+            qrCode.update({
+                image: imageUrl
+            });
+        }
+    }
+
+    if (field === "imageUrl") {
+        if (imageUrl) {
+            nodesBinder.setState({ imageFile: new DataTransfer().files });
+            qrCode.update({
+                image: imageUrl
             });
         } else {
             qrCode.update({
@@ -68,14 +82,7 @@ const qrContainer = document.getElementById("qr-code-generated");
 qrCode.append(qrContainer);
 
 document.getElementById("button-cancel").onclick = () => {
-    nodesBinder.setState({ image: new DataTransfer().files });
-};
-
-document.getElementById("button-default").onclick = () => {
-    nodesBinder.setState({ image: new DataTransfer().files });
-    qrCode.update({
-        image: defaultImage
-    });
+    nodesBinder.setState({ imageFile: new DataTransfer().files });
 };
 
 document.getElementById("qr-download").onclick = () => {

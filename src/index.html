@@ -42,12 +42,14 @@
                     <div class="panel panel--open">
                         <label for="form-data">Data</label>
                         <input node="data" node-change-event="oninput" id="form-data" type="text" value="https://qr-code-styling.com" />
-                        <label for="form-image">Image</label>
-                        <div class="form-image__buttons">
-                            <input node="image" node-data-field="files" id="form-image" type="file" />
+                        <label for="form-image-file">Image File</label>
+                        <div class="form-image-file__buttons">
+                            <input node="imageFile" node-data-field="files" id="form-image-file" type="file" />
                             <button type="button" id="button-cancel">Cancel</button>
-                            <button type="button" id="button-default">Default</button>
                         </div>
+                        <label for="form-image-url">Image Url</label>
+                        <input node="imageUrl" node-change-event="oninput" id="form-image-url" type="url" value="" />
+                        <input hidden node="imageOptions.crossOrigin" node-data-field="checked" type="checkbox" checked/>
                         <label for="form-width">Width</label>
                         <div>
                             <input node="width" id="form-width" type="number" min="100" max="10000" value="300"/>
@@ -59,17 +61,51 @@
                     </div>
                     <button type="button" class="accordion">Dots Options</button>
                     <div class="panel">
-                        <label for="form-dots-color">Dots Color</label>
-                        <div>
-                            <input node="dotsOptions.color" id="form-dots-color" type="color" value="#0970b7"/>
-                        </div>
                         <label for="form-dots-type">Dots Style</label>
                         <div>
                             <select node="dotsOptions.type" id="form-dots-type">
                                 <option value="square" selected>Square</option>
                                 <option value="dots">Dots</option>
                                 <option value="rounded">Rounded</option>
+                                <option value="extra-rounded">Extra rounded</option>
+                                <option value="classy">Classy</option>
+                                <option value="classy-rounded">Classy rounded</option>
                             </select>
+                        </div>
+                        <label for="form-dots-color">Dots Color</label>
+                        <div>
+                            <input node="dotsOptions.color" id="form-dots-color" type="color" value="#0970b7"/>
+                        </div>
+                    </div>
+                    <button type="button" class="accordion">Corners Square Options</button>
+                    <div class="panel">
+                        <label for="form-corners-square-type">Corners Square Style</label>
+                        <div>
+                            <select node="cornersSquareOptions.type" id="form-corners-square-type">
+                                <option value="" selected>None</option>
+                                <option value="square">Square</option>
+                                <option value="dot">Dot</option>
+                                <option value="extra-rounded">Extra rounded</option>
+                            </select>
+                        </div>
+                        <label for="form-corners-square-color">Corners Square Color</label>
+                        <div>
+                            <input node="cornersSquareOptions.color" id="form-corners-square-color" type="color" value="#0970b7"/>
+                        </div>
+                    </div>
+                    <button type="button" class="accordion">Corners Dot Options</button>
+                    <div class="panel">
+                        <label for="form-corners-dot-type">Corners Dot Style</label>
+                        <div>
+                            <select node="cornersDotOptions.type" id="form-corners-dot-type">
+                                <option value="" selected>None</option>
+                                <option value="square">Square</option>
+                                <option value="dot">Dot</option>
+                            </select>
+                        </div>
+                        <label for="form-corners-dot-color">Corners Dot Color</label>
+                        <div>
+                            <input node="cornersDotOptions.color" id="form-corners-dot-color" type="color" value="#0970b7"/>
                         </div>
                     </div>
                     <button type="button" class="accordion">Background Options</button>
@@ -88,6 +124,10 @@
                         <label for="form-image-size">Image Size</label>
                         <div>
                             <input node="imageOptions.imageSize" id="form-image-size" type="number" min="0" max="1" step="0.1" value="0.4"/>
+                        </div>
+                        <label for="form-margin">Margin</label>
+                        <div>
+                            <input node="imageOptions.margin" id="form-margin" type="number" min="0" max="10000" value="0"/>
                         </div>
                     </div>
                     <button type="button" class="accordion">QR Options</button>
