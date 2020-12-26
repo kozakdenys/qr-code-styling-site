@@ -176,22 +176,37 @@ input[type="text"], input[type="number"] {
     padding: 20px;
 }
 
-.form-image-file__buttons {
+.buttons-container {
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
 }
 
-.form-image-file__buttons button {
+.buttons-container button {
     margin-left: 10px;
 }
 
-.form-image-file__buttons button:first-of-type {
-    margin-left: 0;
+.buttons-container button:first-of-type {
+    margin-left: auto;
 }
 
-.form-image-file__buttons #form-image-file {
+.space-between-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.buttons-container button {
+    margin-left: 10px;
+}
+
+.buttons-container button:first-of-type {
+    margin-left: auto;
+}
+
+#form-image-file {
     flex-grow: 1;
-    padding: 10px 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
