@@ -119,10 +119,41 @@
                                 <option value="extra-rounded">Extra rounded</option>
                             </select>
                         </div>
-                        <label for="form-corners-square-color">Corners Square Color</label>
-                        <div class="buttons-container">
+                        <label>Color Type</label>
+                        <div class="space-between-container">
+                            <div style="flex-grow: 1">
+                                <input node-data-field="checked" node="cornersSquareOptionsHelper.colorType.single" id="form-corners-square-color-type-single" type="radio" name="corners-square-color-type" checked/>
+                                <label for="form-corners-square-color-type-single">Single color</label>
+                            </div>
+                            <div style="flex-grow: 1">
+                                <input node-data-field="checked" node="cornersSquareOptionsHelper.colorType.gradient" id="form-corners-square-color-type-gradient" type="radio" name="corners-square-color-type"/>
+                                <label for="form-corners-square-color-type-gradient">Color gradient</label>
+                            </div>
+                        </div>
+                        <label class="cornersSquareOptionsHelper.colorType.single" for="form-corners-square-color">Corners Square Color</label>
+                        <div class="cornersSquareOptionsHelper.colorType.single buttons-container">
                             <input node="cornersSquareOptions.color" id="form-corners-square-color" type="color" value="#6a1a4c"/>
                             <button type="button" id="button-clear-corners-square-color">Clear</button>
+                        </div>
+                        <label class="cornersSquareOptionsHelper.colorType.gradient" style="visibility: hidden; height: 0">Gradient Type</label>
+                        <div class="cornersSquareOptionsHelper.colorType.gradient space-between-container" style="visibility: hidden; height: 0">
+                            <div style="flex-grow: 1">
+                                <input node-data-field="checked" node="cornersSquareOptionsHelper.gradient.linear" id="form-corners-square-gradient-type-linear" type="radio" name="corners-square-gradient-type" checked/>
+                                <label for="form-corners-square-gradient-type-linear">Linear</label>
+                            </div>
+                            <div style="flex-grow: 1">
+                                <input node-data-field="checked" node="cornersSquareOptionsHelper.gradient.radial" id="form-corners-square-gradient-type-radial" type="radio" name="corners-square-gradient-type"/>
+                                <label for="form-corners-square-gradient-type-radial">Radial</label>
+                            </div>
+                        </div>
+                        <label class="cornersSquareOptionsHelper.colorType.gradient" style="visibility: hidden; height: 0">Dots Gradient</label>
+                        <div class="cornersSquareOptionsHelper.colorType.gradient" style="visibility: hidden; height: 0">
+                            <input node="cornersSquareOptionsHelper.gradient.color1" type="color" value="#6a1a4c"/>
+                            <input node="cornersSquareOptionsHelper.gradient.color2" type="color" value="#6a1a4c"/>
+                        </div>
+                        <label class="cornersSquareOptionsHelper.colorType.gradient" for="form-corners-square-gradient-rotation" style="visibility: hidden; height: 0">Rotation</label>
+                        <div class="cornersSquareOptionsHelper.colorType.gradient" style="visibility: hidden; height: 0">
+                            <input node="cornersSquareOptionsHelper.gradient.rotation" id="form-corners-square-gradient-rotation" type="number" min="0" max="360" value="0"/>
                         </div>
                     </div>
                     <button type="button" class="accordion">Corners Dot Options</button>
