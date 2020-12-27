@@ -44,12 +44,9 @@
                         <input node="data" node-change-event="oninput" id="form-data" type="text" value="https://qr-code-styling.com" />
                         <label for="form-image-file">Image File</label>
                         <div class="buttons-container">
-                            <input node="imageFile" node-data-field="files" id="form-image-file" type="file" />
+                            <input node="image" node-data-field="files" id="form-image-file" type="file" />
                             <button type="button" id="button-cancel">Cancel</button>
                         </div>
-                        <label for="form-image-url">Image Url</label>
-                        <input node="imageUrl" node-change-event="oninput" id="form-image-url" type="url" value="" />
-                        <input hidden node="imageOptions.crossOrigin" node-data-field="checked" type="checkbox" checked/>
                         <label for="form-width">Width</label>
                         <div>
                             <input node="width" id="form-width" type="number" min="100" max="10000" value="300"/>

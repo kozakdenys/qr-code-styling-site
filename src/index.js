@@ -45,40 +45,23 @@ function getPerceptualBrightness(color) {
 updateDescriptionContainerBackground(initState.dotsOptions.color, initState.backgroundOptions.color);
 
 nodesBinder.onStateUpdate(({ field, data }) => {
-    const { imageFile, imageUrl, dotsOptionsHelper, cornersSquareOptionsHelper, cornersDotOptionsHelper, backgroundOptionsHelper, ...state } = nodesBinder.getState();
+    const { image, imageUrl, dotsOptionsHelper, cornersSquareOptionsHelper, cornersDotOptionsHelper, backgroundOptionsHelper, ...state } = nodesBinder.getState();
 
     updateDescriptionContainerBackground(state.dotsOptions.color, state.backgroundOptions.color);
 
-    if (field === "imageFile") {
-        if (imageFile && imageFile[0]) {
-            nodesBinder.setState({ imageUrl: "" });
-            getSrcFromFile(imageFile[0], result => {
+    if (field === "image") {
+        if (data && data[0]) {
+            getSrcFromFile(data[0], result => {
                 qrCode.update({
                     image: result
                 });
             });
         } else {
             qrCode.update({
-                image: imageUrl
-            });
-        }
-        return;
-    }
-
-    if (field === "imageUrl") {
-        if (imageUrl) {
-            nodesBinder.setState({ imageFile: new DataTransfer().files });
-            qrCode.update({
-                image: imageUrl
-            });
-        } else {
-            qrCode.update({
                 image: null
             });
         }
-        return;
     }
-
 
     if (field === "dotsOptionsHelper.colorType.gradient" && data) {
         const showElements = document.getElementsByClassName("dotsOptionsHelper.colorType.gradient")
@@ -584,7 +567,7 @@ const qrContainer = document.getElementById("qr-code-generated");
 qrCode.append(qrContainer);
 
 document.getElementById("button-cancel").onclick = () => {
-    nodesBinder.setState({ imageFile: new DataTransfer().files });
+    nodesBinder.setState({ image: new DataTransfer().files });
 };
 
 document.getElementById("button-clear-corners-square-color").onclick = () => {
