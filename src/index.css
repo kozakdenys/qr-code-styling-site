@@ -172,6 +172,10 @@ input[type="text"], input[type="number"] {
     align-items: center;
 }
 
+.row--body {
+    align-items: start;
+}
+
 .col {
     padding: 20px;
 }
@@ -267,6 +271,8 @@ input[type="text"], input[type="number"] {
 
 .qr-code-container {
     max-width: 100%;
+    position: sticky;
+    top: 5px;
 }
 
 #form-data {

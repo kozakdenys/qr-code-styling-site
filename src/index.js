@@ -45,7 +45,7 @@ function getPerceptualBrightness(color) {
 updateDescriptionContainerBackground(initState.dotsOptions.color, initState.backgroundOptions.color);
 
 nodesBinder.onStateUpdate(({ field, data }) => {
-    const { imageFile, imageUrl, dotsOptionsHelper, cornersSquareOptionsHelper, ...state } = nodesBinder.getState();
+    const { imageFile, imageUrl, dotsOptionsHelper, cornersSquareOptionsHelper, cornersDotOptionsHelper, backgroundOptionsHelper, ...state } = nodesBinder.getState();
 
     updateDescriptionContainerBackground(state.dotsOptions.color, state.backgroundOptions.color);
 
@@ -326,6 +326,255 @@ nodesBinder.onStateUpdate(({ field, data }) => {
         });
         return;
     }
+
+    if (field === "cornersDotOptionsHelper.colorType.gradient" && data) {
+        const showElements = document.getElementsByClassName("cornersDotOptionsHelper.colorType.gradient")
+        const hideElements =document.getElementsByClassName("cornersDotOptionsHelper.colorType.single")
+
+        Array.from(showElements).forEach((element) => {
+            element.style.visibility = "visible";
+            element.style.height = "auto";
+        });
+
+        Array.from(hideElements).forEach((element) => {
+            element.style.visibility = "hidden";
+            element.style.height = "0";
+        });
+
+        qrCode.update({
+            cornersDotOptions: {
+                color: undefined,
+                gradient: {
+                    type: cornersDotOptionsHelper.gradient.linear ? "linear" : "radial",
+                    rotation: cornersDotOptionsHelper.gradient.rotation / 180 * Math.PI,
+                    colorStops: [{
+                        offset: 0,
+                        color: cornersDotOptionsHelper.gradient.color1
+                    }, {
+                        offset: 1,
+                        color: cornersDotOptionsHelper.gradient.color2
+                    }]
+                }
+            }
+        });
+        return;
+    }
+
+    if (field === "cornersDotOptionsHelper.colorType.single" && data) {
+        const showElements = document.getElementsByClassName("cornersDotOptionsHelper.colorType.single")
+        const hideElements =document.getElementsByClassName("cornersDotOptionsHelper.colorType.gradient")
+
+        Array.from(showElements).forEach((element) => {
+            element.style.visibility = "visible";
+            element.style.height = "auto";
+        });
+
+        Array.from(hideElements).forEach((element) => {
+            element.style.visibility = "hidden";
+            element.style.height = "0";
+        });
+
+        qrCode.update({
+            cornersDotOptions: {
+                color: state.cornersDotOptions.color,
+                gradient: null
+            }
+        });
+        return;
+    }
+
+    if (field === "cornersDotOptionsHelper.gradient.linear" && data) {
+        qrCode.update({
+            cornersDotOptions: {
+                gradient: {
+                    type: "linear"
+                }
+            }
+        });
+        return;
+    }
+
+    if (field === "cornersDotOptionsHelper.gradient.radial" && data) {
+        qrCode.update({
+            cornersDotOptions: {
+                gradient: {
+                    type: "radial"
+                }
+            }
+        });
+        return;
+    }
+
+    if (field === "cornersDotOptionsHelper.gradient.color1") {
+        qrCode.update({
+            cornersDotOptions: {
+                gradient: {
+                    colorStops: [{
+                        offset: 0,
+                        color: data
+                    }, {
+                        offset: 1,
+                        color: cornersDotOptionsHelper.gradient.color2
+                    }]
+                }
+            }
+        });
+        return;
+    }
+
+    if (field === "cornersDotOptionsHelper.gradient.color2") {
+        qrCode.update({
+            cornersDotOptions: {
+                gradient: {
+                    colorStops: [{
+                        offset: 0,
+                        color: cornersDotOptionsHelper.gradient.color1
+                    }, {
+                        offset: 1,
+                        color: data
+                    }]
+                }
+            }
+        });
+        return;
+    }
+
+    if (field === "cornersDotOptionsHelper.gradient.rotation") {
+        qrCode.update({
+            cornersDotOptions: {
+                gradient: {
+                    rotation: cornersDotOptionsHelper.gradient.rotation / 180 * Math.PI,
+                }
+            }
+        });
+        return;
+    }
+
+
+
+    if (field === "backgroundOptionsHelper.colorType.gradient" && data) {
+        const showElements = document.getElementsByClassName("backgroundOptionsHelper.colorType.gradient")
+        const hideElements =document.getElementsByClassName("backgroundOptionsHelper.colorType.single")
+
+        Array.from(showElements).forEach((element) => {
+            element.style.visibility = "visible";
+            element.style.height = "auto";
+        });
+
+        Array.from(hideElements).forEach((element) => {
+            element.style.visibility = "hidden";
+            element.style.height = "0";
+        });
+
+        qrCode.update({
+            backgroundOptions: {
+                color: undefined,
+                gradient: {
+                    type: backgroundOptionsHelper.gradient.linear ? "linear" : "radial",
+                    rotation: backgroundOptionsHelper.gradient.rotation / 180 * Math.PI,
+                    colorStops: [{
+                        offset: 0,
+                        color: backgroundOptionsHelper.gradient.color1
+                    }, {
+                        offset: 1,
+                        color: backgroundOptionsHelper.gradient.color2
+                    }]
+                }
+            }
+        });
+        return;
+    }
+
+    if (field === "backgroundOptionsHelper.colorType.single" && data) {
+        const showElements = document.getElementsByClassName("backgroundOptionsHelper.colorType.single")
+        const hideElements =document.getElementsByClassName("backgroundOptionsHelper.colorType.gradient")
+
+        Array.from(showElements).forEach((element) => {
+            element.style.visibility = "visible";
+            element.style.height = "auto";
+        });
+
+        Array.from(hideElements).forEach((element) => {
+            element.style.visibility = "hidden";
+            element.style.height = "0";
+        });
+
+        qrCode.update({
+            backgroundOptions: {
+                color: state.backgroundOptions.color,
+                gradient: null
+            }
+        });
+        return;
+    }
+
+    if (field === "backgroundOptionsHelper.gradient.linear" && data) {
+        qrCode.update({
+            backgroundOptions: {
+                gradient: {
+                    type: "linear"
+                }
+            }
+        });
+        return;
+    }
+
+    if (field === "backgroundOptionsHelper.gradient.radial" && data) {
+        qrCode.update({
+            backgroundOptions: {
+                gradient: {
+                    type: "radial"
+                }
+            }
+        });
+        return;
+    }
+
+    if (field === "backgroundOptionsHelper.gradient.color1") {
+        qrCode.update({
+            backgroundOptions: {
+                gradient: {
+                    colorStops: [{
+                        offset: 0,
+                        color: data
+                    }, {
+                        offset: 1,
+                        color: backgroundOptionsHelper.gradient.color2
+                    }]
+                }
+            }
+        });
+        return;
+    }
+
+    if (field === "backgroundOptionsHelper.gradient.color2") {
+        qrCode.update({
+            backgroundOptions: {
+                gradient: {
+                    colorStops: [{
+                        offset: 0,
+                        color: backgroundOptionsHelper.gradient.color1
+                    }, {
+                        offset: 1,
+                        color: data
+                    }]
+                }
+            }
+        });
+        return;
+    }
+
+    if (field === "backgroundOptionsHelper.gradient.rotation") {
+        qrCode.update({
+            backgroundOptions: {
+                gradient: {
+                    rotation: backgroundOptionsHelper.gradient.rotation / 180 * Math.PI,
+                }
+            }
+        });
+        return;
+    }
+
 
     qrCode.update(state);
 });
