@@ -172,26 +172,45 @@ input[type="text"], input[type="number"] {
     align-items: center;
 }
 
+.row--body {
+    align-items: start;
+}
+
 .col {
     padding: 20px;
 }
 
-.form-image__buttons {
+.buttons-container {
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
 }
 
-.form-image__buttons button {
+.buttons-container button {
     margin-left: 10px;
 }
 
-.form-image__buttons button:first-of-type {
-    margin-left: 0;
+.buttons-container button:first-of-type {
+    margin-left: auto;
 }
 
-.form-image__buttons #form-image {
+.space-between-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.buttons-container button {
+    margin-left: 10px;
+}
+
+.buttons-container button:first-of-type {
+    margin-left: auto;
+}
+
+#form-image-file {
     flex-grow: 1;
-    padding: 10px 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -221,6 +240,8 @@ input[type="text"], input[type="number"] {
 
 .qr-form {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .qr-header {
@@ -250,6 +271,8 @@ input[type="text"], input[type="number"] {
 
 .qr-code-container {
     max-width: 100%;
+    position: sticky;
+    top: 5px;
 }
 
 #form-data {
@@ -262,4 +285,4 @@ input[type="text"], input[type="number"] {
     width: 0;
 }
 
-/*# sourceMappingURL=index.739234a20158aacab57a.css.map*/
+/*# sourceMappingURL=index.c80ced979c06f0d90344.css.map*/

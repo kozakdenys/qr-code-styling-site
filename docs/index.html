@@ -16,14 +16,14 @@
 
         gtag('config', 'UA-149838823-1');
     </script>
-<link href="index.739234a20158aacab57a.css" rel="stylesheet"></head>
+<link href="index.c80ced979c06f0d90344.css" rel="stylesheet"></head>
 <body>
     <header class="container qr-header">
         <div class="row row--qr-header">
             <div class="col qr-logo">
                 <img class="qr-logo__img" src="0b3922d9d1e466270a79706c08c4a57c.png" alt="QR code styling logo" />
             </div>
-            <a target="_blank" rel="noopener" class="col white" href="https://www.npmjs.com/package/qr-code-styling">npm v1.2.0</a>
+            <a target="_blank" rel="noopener" class="col white" href="https://www.npmjs.com/package/qr-code-styling">npm v1.3.0</a>
             <a target="_blank" rel="noopener" class="col white" href="https://github.com/kozakdenys/qr-code-styling">GitHub</a>
         </div>
     </header>
@@ -36,17 +36,16 @@
             </div>
         </section>
         <section class="container">
-            <div class="row">
+            <div class="row row--body">
                 <form class="col qr-form" id="form">
                     <button type="button" class="accordion accordion--open">Main Options</button>
                     <div class="panel panel--open">
                         <label for="form-data">Data</label>
                         <input node="data" node-change-event="oninput" id="form-data" type="text" value="https://qr-code-styling.com" />
-                        <label for="form-image">Image</label>
-                        <div class="form-image__buttons">
-                            <input node="image" node-data-field="files" id="form-image" type="file" />
+                        <label for="form-image-file">Image File</label>
+                        <div class="buttons-container">
+                            <input node="image" node-data-field="files" id="form-image-file" type="file" />
                             <button type="button" id="button-cancel">Cancel</button>
-                            <button type="button" id="button-default">Default</button>
                         </div>
                         <label for="form-width">Width</label>
                         <div>
@@ -59,24 +58,184 @@
                     </div>
                     <button type="button" class="accordion">Dots Options</button>
                     <div class="panel">
-                        <label for="form-dots-color">Dots Color</label>
-                        <div>
-                            <input node="dotsOptions.color" id="form-dots-color" type="color" value="#0970b7"/>
-                        </div>
                         <label for="form-dots-type">Dots Style</label>
                         <div>
                             <select node="dotsOptions.type" id="form-dots-type">
-                                <option value="square" selected>Square</option>
+                                <option value="square">Square</option>
                                 <option value="dots">Dots</option>
                                 <option value="rounded">Rounded</option>
+                                <option value="extra-rounded" selected>Extra rounded</option>
+                                <option value="classy">Classy</option>
+                                <option value="classy-rounded">Classy rounded</option>
                             </select>
+                        </div>
+                        <label>Color Type</label>
+                        <div class="space-between-container">
+                            <div style="flex-grow: 1">
+                                <input node-data-field="checked" node="dotsOptionsHelper.colorType.single" id="form-dots-color-type-single" type="radio" name="dots-color-type" checked/>
+                                <label for="form-dots-color-type-single">Single color</label>
+                            </div>
+                            <div style="flex-grow: 1">
+                                <input node-data-field="checked" node="dotsOptionsHelper.colorType.gradient" id="form-dots-color-type-gradient" type="radio" name="dots-color-type"/>
+                                <label for="form-dots-color-type-gradient">Color gradient</label>
+                            </div>
+                        </div>
+                        <label class="dotsOptionsHelper.colorType.single" for="form-dots-color">Dots Color</label>
+                        <div class="dotsOptionsHelper.colorType.single">
+                            <input node="dotsOptions.color" id="form-dots-color" type="color" value="#6a1a4c"/>
+                        </div>
+                        <label class="dotsOptionsHelper.colorType.gradient" style="visibility: hidden; height: 0">Gradient Type</label>
+                        <div class="dotsOptionsHelper.colorType.gradient space-between-container" style="visibility: hidden; height: 0">
+                            <div style="flex-grow: 1">
+                                <input node-data-field="checked" node="dotsOptionsHelper.gradient.linear" id="form-dots-gradient-type-linear" type="radio" name="dots-gradient-type" checked/>
+                                <label for="form-dots-gradient-type-linear">Linear</label>
+                            </div>
+                            <div style="flex-grow: 1">
+                                <input node-data-field="checked" node="dotsOptionsHelper.gradient.radial" id="form-dots-gradient-type-radial" type="radio" name="dots-gradient-type"/>
+                                <label for="form-dots-gradient-type-radial">Radial</label>
+                            </div>
+                        </div>
+                        <label class="dotsOptionsHelper.colorType.gradient" style="visibility: hidden; height: 0">Dots Gradient</label>
+                        <div class="dotsOptionsHelper.colorType.gradient" style="visibility: hidden; height: 0">
+                            <input node="dotsOptionsHelper.gradient.color1" type="color" value="#6a1a4c"/>
+                            <input node="dotsOptionsHelper.gradient.color2" type="color" value="#6a1a4c"/>
+                        </div>
+                        <label class="dotsOptionsHelper.colorType.gradient" for="form-dots-gradient-rotation" style="visibility: hidden; height: 0">Rotation</label>
+                        <div class="dotsOptionsHelper.colorType.gradient" style="visibility: hidden; height: 0">
+                            <input node="dotsOptionsHelper.gradient.rotation" id="form-dots-gradient-rotation" type="number" min="0" max="360" value="0"/>
+                        </div>
+                    </div>
+                    <button type="button" class="accordion">Corners Square Options</button>
+                    <div class="panel">
+                        <label for="form-corners-square-type">Corners Square Style</label>
+                        <div>
+                            <select node="cornersSquareOptions.type" id="form-corners-square-type">
+                                <option value="">None</option>
+                                <option value="square">Square</option>
+                                <option value="dot">Dot</option>
+                                <option value="extra-rounded" selected>Extra rounded</option>
+                            </select>
+                        </div>
+                        <label>Color Type</label>
+                        <div class="space-between-container">
+                            <div style="flex-grow: 1">
+                                <input node-data-field="checked" node="cornersSquareOptionsHelper.colorType.single" id="form-corners-square-color-type-single" type="radio" name="corners-square-color-type" checked/>
+                                <label for="form-corners-square-color-type-single">Single color</label>
+                            </div>
+                            <div style="flex-grow: 1">
+                                <input node-data-field="checked" node="cornersSquareOptionsHelper.colorType.gradient" id="form-corners-square-color-type-gradient" type="radio" name="corners-square-color-type"/>
+                                <label for="form-corners-square-color-type-gradient">Color gradient</label>
+                            </div>
+                        </div>
+                        <label class="cornersSquareOptionsHelper.colorType.single" for="form-corners-square-color">Corners Square Color</label>
+                        <div class="cornersSquareOptionsHelper.colorType.single buttons-container">
+                            <input node="cornersSquareOptions.color" id="form-corners-square-color" type="color" value="#000000"/>
+                            <button type="button" id="button-clear-corners-square-color">Clear</button>
+                        </div>
+                        <label class="cornersSquareOptionsHelper.colorType.gradient" style="visibility: hidden; height: 0">Gradient Type</label>
+                        <div class="cornersSquareOptionsHelper.colorType.gradient space-between-container" style="visibility: hidden; height: 0">
+                            <div style="flex-grow: 1">
+                                <input node-data-field="checked" node="cornersSquareOptionsHelper.gradient.linear" id="form-corners-square-gradient-type-linear" type="radio" name="corners-square-gradient-type" checked/>
+                                <label for="form-corners-square-gradient-type-linear">Linear</label>
+                            </div>
+                            <div style="flex-grow: 1">
+                                <input node-data-field="checked" node="cornersSquareOptionsHelper.gradient.radial" id="form-corners-square-gradient-type-radial" type="radio" name="corners-square-gradient-type"/>
+                                <label for="form-corners-square-gradient-type-radial">Radial</label>
+                            </div>
+                        </div>
+                        <label class="cornersSquareOptionsHelper.colorType.gradient" style="visibility: hidden; height: 0">Dots Gradient</label>
+                        <div class="cornersSquareOptionsHelper.colorType.gradient" style="visibility: hidden; height: 0">
+                            <input node="cornersSquareOptionsHelper.gradient.color1" type="color" value="#000000"/>
+                            <input node="cornersSquareOptionsHelper.gradient.color2" type="color" value="#000000"/>
+                        </div>
+                        <label class="cornersSquareOptionsHelper.colorType.gradient" for="form-corners-square-gradient-rotation" style="visibility: hidden; height: 0">Rotation</label>
+                        <div class="cornersSquareOptionsHelper.colorType.gradient" style="visibility: hidden; height: 0">
+                            <input node="cornersSquareOptionsHelper.gradient.rotation" id="form-corners-square-gradient-rotation" type="number" min="0" max="360" value="0"/>
+                        </div>
+                    </div>
+                    <button type="button" class="accordion">Corners Dot Options</button>
+                    <div class="panel">
+                        <label for="form-corners-dot-type">Corners Dot Style</label>
+                        <div>
+                            <select node="cornersDotOptions.type" id="form-corners-dot-type">
+                                <option value="" selected>None</option>
+                                <option value="square">Square</option>
+                                <option value="dot">Dot</option>
+                            </select>
+                        </div>
+                        <label>Color Type</label>
+                        <div class="space-between-container">
+                            <div style="flex-grow: 1">
+                                <input node-data-field="checked" node="cornersDotOptionsHelper.colorType.single" id="form-corners-dot-color-type-single" type="radio" name="corners-dot-color-type" checked/>
+                                <label for="form-corners-dot-color-type-single">Single color</label>
+                            </div>
+                            <div style="flex-grow: 1">
+                                <input node-data-field="checked" node="cornersDotOptionsHelper.colorType.gradient" id="form-corners-dot-color-type-gradient" type="radio" name="corners-dot-color-type"/>
+                                <label for="form-corners-dot-color-type-gradient">Color gradient</label>
+                            </div>
+                        </div>
+                        <label class="cornersDotOptionsHelper.colorType.single" for="form-corners-dot-color">Corners Dot Color</label>
+                        <div class="cornersDotOptionsHelper.colorType.single buttons-container">
+                            <input node="cornersDotOptions.color" id="form-corners-dot-color" type="color" value="#000000"/>
+                            <button type="button" id="button-clear-corners-dot-color">Clear</button>
+                        </div>
+                        <label class="cornersDotOptionsHelper.colorType.gradient" style="visibility: hidden; height: 0">Gradient Type</label>
+                        <div class="cornersDotOptionsHelper.colorType.gradient space-between-container" style="visibility: hidden; height: 0">
+                            <div style="flex-grow: 1">
+                                <input node-data-field="checked" node="cornersDotOptionsHelper.gradient.linear" id="form-corners-dot-gradient-type-linear" type="radio" name="corners-dot-gradient-type" checked/>
+                                <label for="form-corners-dot-gradient-type-linear">Linear</label>
+                            </div>
+                            <div style="flex-grow: 1">
+                                <input node-data-field="checked" node="cornersDotOptionsHelper.gradient.radial" id="form-corners-dot-gradient-type-radial" type="radio" name="corners-dot-gradient-type"/>
+                                <label for="form-corners-dot-gradient-type-radial">Radial</label>
+                            </div>
+                        </div>
+                        <label class="cornersDotOptionsHelper.colorType.gradient" style="visibility: hidden; height: 0">Dots Gradient</label>
+                        <div class="cornersDotOptionsHelper.colorType.gradient" style="visibility: hidden; height: 0">
+                            <input node="cornersDotOptionsHelper.gradient.color1" type="color" value="#000000"/>
+                            <input node="cornersDotOptionsHelper.gradient.color2" type="color" value="#000000"/>
+                        </div>
+                        <label class="cornersDotOptionsHelper.colorType.gradient" for="form-corners-dot-gradient-rotation" style="visibility: hidden; height: 0">Rotation</label>
+                        <div class="cornersDotOptionsHelper.colorType.gradient" style="visibility: hidden; height: 0">
+                            <input node="cornersDotOptionsHelper.gradient.rotation" id="form-corners-dot-gradient-rotation" type="number" min="0" max="360" value="0"/>
                         </div>
                     </div>
                     <button type="button" class="accordion">Background Options</button>
                     <div class="panel">
-                        <label for="form-background-color">Background Color</label>
-                        <div>
+                        <label>Color Type</label>
+                        <div class="space-between-container">
+                            <div style="flex-grow: 1">
+                                <input node-data-field="checked" node="backgroundOptionsHelper.colorType.single" id="form-background-color-type-single" type="radio" name="background-color-type" checked/>
+                                <label for="form-background-color-type-single">Single color</label>
+                            </div>
+                            <div style="flex-grow: 1">
+                                <input node-data-field="checked" node="backgroundOptionsHelper.colorType.gradient" id="form-background-color-type-gradient" type="radio" name="background-color-type"/>
+                                <label for="form-background-color-type-gradient">Color gradient</label>
+                            </div>
+                        </div>
+                        <label class="backgroundOptionsHelper.colorType.single" for="form-background-color">Background Color</label>
+                        <div class="backgroundOptionsHelper.colorType.single">
                             <input node="backgroundOptions.color" id="form-background-color" type="color" value="#ffffff"/>
+                        </div>
+                        <label class="backgroundOptionsHelper.colorType.gradient" style="visibility: hidden; height: 0">Gradient Type</label>
+                        <div class="backgroundOptionsHelper.colorType.gradient space-between-container" style="visibility: hidden; height: 0">
+                            <div style="flex-grow: 1">
+                                <input node-data-field="checked" node="backgroundOptionsHelper.gradient.linear" id="form-background-gradient-type-linear" type="radio" name="background-gradient-type" checked/>
+                                <label for="form-background-gradient-type-linear">Linear</label>
+                            </div>
+                            <div style="flex-grow: 1">
+                                <input node-data-field="checked" node="backgroundOptionsHelper.gradient.radial" id="form-background-gradient-type-radial" type="radio" name="background-gradient-type"/>
+                                <label for="form-background-gradient-type-radial">Radial</label>
+                            </div>
+                        </div>
+                        <label class="backgroundOptionsHelper.colorType.gradient" style="visibility: hidden; height: 0">Background Gradient</label>
+                        <div class="backgroundOptionsHelper.colorType.gradient" style="visibility: hidden; height: 0">
+                            <input node="backgroundOptionsHelper.gradient.color1" type="color" value="#ffffff"/>
+                            <input node="backgroundOptionsHelper.gradient.color2" type="color" value="#ffffff"/>
+                        </div>
+                        <label class="backgroundOptionsHelper.colorType.gradient" for="form-background-gradient-rotation" style="visibility: hidden; height: 0">Rotation</label>
+                        <div class="backgroundOptionsHelper.colorType.gradient" style="visibility: hidden; height: 0">
+                            <input node="backgroundOptionsHelper.gradient.rotation" id="form-background-gradient-rotation" type="number" min="0" max="360" value="0"/>
                         </div>
                     </div>
                     <button type="button" class="accordion">Image Options</button>
@@ -88,6 +247,10 @@
                         <label for="form-image-size">Image Size</label>
                         <div>
                             <input node="imageOptions.imageSize" id="form-image-size" type="number" min="0" max="1" step="0.1" value="0.4"/>
+                        </div>
+                        <label for="form-margin">Margin</label>
+                        <div>
+                            <input node="imageOptions.margin" id="form-margin" type="number" min="0" max="10000" value="0"/>
                         </div>
                     </div>
                     <button type="button" class="accordion">QR Options</button>
@@ -140,5 +303,5 @@
             © 2021 <a target="_blank" rel="noopener" class="white" href="https://www.linkedin.com/in/denys-kozak/">Denys Kozak</a>
         </div>
     </footer>
-<script type="text/javascript" src="index.6e551c21521bafd6d962.js"></script></body>
+<script type="text/javascript" src="index.ac6e0ef99274c0f42bc4.js"></script></body>
 </html>
