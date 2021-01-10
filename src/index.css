@@ -275,6 +275,12 @@ input[type="text"], input[type="number"] {
     top: 5px;
 }
 
+.options-export-group {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
 #form-data {
     width: 100%;
 }
