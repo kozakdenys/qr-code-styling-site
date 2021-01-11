@@ -589,6 +589,13 @@ document.getElementById("qr-download").onclick = () => {
     qrCode.download({ extension, name: "qr-code-styling" });
 };
 
+//Download options
+document.getElementById("export-options").addEventListener("click", function() {
+    const dataStr = `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(qrCode._options))}`;
+    this.setAttribute("href",dataStr);
+    this.setAttribute("download", "options.json");
+});
+
 //Accordion
 let acc = document.getElementsByClassName("accordion");
 
