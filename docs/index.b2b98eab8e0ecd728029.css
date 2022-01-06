@@ -99,7 +99,7 @@ a.black:active {
     color: #afafaf;
 }
 
-input[type="text"], input[type="number"] {
+input[type="text"], input[type="number"], input[type="email"] {
     border-width: 1px;
     border-style: solid;
     border-color: rgb(205, 205, 205);
@@ -292,4 +292,4 @@ input[type="text"], input[type="number"] {
 }
 
 
-/*# sourceMappingURL=index.ed65272dbefaaa125154.css.map*/
+/*# sourceMappingURL=index.b2b98eab8e0ecd728029.css.map*/

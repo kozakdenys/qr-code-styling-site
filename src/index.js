@@ -16,6 +16,7 @@ delete initState.dotsOptions.gradient;
 
 const qrCode = new QrCodeStyling({
     ...initState,
+    data: computeData(initState.contentOptionsHelper),
     image: defaultImage,
 });
 
@@ -42,12 +43,54 @@ function getPerceptualBrightness(color) {
     return r + g + b;
 }
 
+function getDataType(contentOptionsHelper) {
+    for (let key in contentOptionsHelper.type) {
+        if (contentOptionsHelper.type.hasOwnProperty(key) && contentOptionsHelper.type[key]) return key
+    }
+    throw "Unable to determine type";
+}
+
+function computeData(contentOptionsHelper) {
+    // https://github.com/zxing/zxing/wiki/Barcode-Contents
+    const type = getDataType(contentOptionsHelper);
+    switch(type){
+        case "text":
+            return contentOptionsHelper.text;
+        case "email":
+           return "mailto:" + contentOptionsHelper.email;
+        case "wifi":
+              return "WIFI:T:" + contentOptionsHelper.wifi.type + ";S:" + contentOptionsHelper.wifi.ssid + ";P:" + contentOptionsHelper.wifi.pwd + ";;";
+        default:
+            throw "Unsupported data type " + type;
+    }
+}
+
 updateDescriptionContainerBackground(initState.dotsOptions.color, initState.backgroundOptions.color);
 
 nodesBinder.onStateUpdate(({ field, data }) => {
-    const { image, imageUrl, dotsOptionsHelper, cornersSquareOptionsHelper, cornersDotOptionsHelper, backgroundOptionsHelper, ...state } = nodesBinder.getState();
+    const { image, imageUrl, dotsOptionsHelper, cornersSquareOptionsHelper, cornersDotOptionsHelper, backgroundOptionsHelper, contentOptionsHelper, ...state } = nodesBinder.getState();
 
     updateDescriptionContainerBackground(state.dotsOptions.color, state.backgroundOptions.color);
+
+    if (field.startsWith("contentOptionsHelper.")) {
+        const qrData = computeData(contentOptionsHelper);
+        qrCode.update({
+            data: qrData,
+        });
+        if (field.startsWith("contentOptionsHelper.type.")) {
+            const type = getDataType(contentOptionsHelper);
+            const hideElements = document.getElementsByClassName("contentOptionsHelper")
+            const showElements = document.getElementsByClassName("contentOptionsHelper." + type)
+
+            Array.from(hideElements).forEach((element) => {
+                element.style.display = "none";
+            });
+        
+            Array.from(showElements).forEach((element) => {
+                element.style.display = null;
+            });
+        }
+    }
 
     if (field === "image") {
         if (data && data[0]) {
