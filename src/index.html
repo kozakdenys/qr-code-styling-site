@@ -40,8 +40,38 @@
                 <form class="col qr-form" id="form">
                     <button type="button" class="accordion accordion--open">Main Options</button>
                     <div class="panel panel--open">
-                        <label for="form-data">Data</label>
-                        <input node="data" node-change-event="oninput" id="form-data" type="text" value="https://qr-code-styling.com" />
+                        <label>Type</label>
+                        <div class="space-between-container">
+                            <div style="flex-grow: 1">
+                                <input node="contentOptionsHelper.type.text" node-data-field="checked" id="form-type-text" type="radio" name="form-type" checked/>
+                                <label for="form-type-text">Text</label>
+                            </div>
+                            <div style="flex-grow: 1">
+                                <input node="contentOptionsHelper.type.email" node-data-field="checked" id="form-type-email" type="radio" name="form-type"/>
+                                <label for="form-type-email">Email</label>
+                            </div>
+                            <div style="flex-grow: 1">
+                                <input node="contentOptionsHelper.type.wifi" node-data-field="checked" id="form-type-wifi" type="radio" name="form-type"/>
+                                <label for="form-type-email">Wifi</label>
+                            </div>
+                        </div>
+                        <label class="contentOptionsHelper contentOptionsHelper.text" for="form-data-test">Data</label>
+                        <input class="contentOptionsHelper contentOptionsHelper.text" node="contentOptionsHelper.text" node-change-event="oninput" id="form-data-text" type="text" value="https://qr-code-styling.com" />
+
+                        <label class="contentOptionsHelper contentOptionsHelper.email" style="display: none;" for="form-data-email">Email</label>
+                        <input class="contentOptionsHelper contentOptionsHelper.email" style="display: none;"  node="contentOptionsHelper.email" node-change-event="oninput" id="form-data-email" type="email" value="kozak.denys.dev@gmail.com" />
+                        
+                        <label class="contentOptionsHelper contentOptionsHelper.wifi" style="display: none;" for="form-data-wifi-type">Type</label>
+                        <select class="contentOptionsHelper contentOptionsHelper.wifi" style="display: none;" node="contentOptionsHelper.wifi.type" id="form-data-wifi-type">
+                            <option value="nopass">No encryption</option>
+                            <option value="WEP">WEP</option>
+                            <option value="WPA" selected>WPA (WPA/WPA2/WPA3)</option>
+                        </select>
+                        <label class="contentOptionsHelper contentOptionsHelper.wifi" style="display: none;" for="form-data-wifi-ssid">SSID</label>
+                        <input class="contentOptionsHelper contentOptionsHelper.wifi" style="display: none;" node="contentOptionsHelper.wifi.ssid" node-change-event="oninput" id="form-data-wifi-ssid" type="text" value="MySSID" />
+                        <label class="contentOptionsHelper contentOptionsHelper.wifi" style="display: none;" for="form-data-wifi-pwd">Password</label>
+                        <input class="contentOptionsHelper contentOptionsHelper.wifi" style="display: none;" node="contentOptionsHelper.wifi.pwd" node-change-event="oninput" id="form-data-wifi-pwd" type="text" value="1234" />
+                        
                         <label for="form-image-file">Image File</label>
                         <div class="buttons-container">
                             <input node="image" node-data-field="files" id="form-image-file" type="file" />
